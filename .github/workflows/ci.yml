@@ -24,7 +24,6 @@ jobs:
       - name: Run tests
         run: npm run test -- --coverage
 
-  lint:
     Style:
       - name: Check out code
         npm run format:check
