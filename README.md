@@ -1,4 +1,4 @@
-![alt text goes here](IMAGE_URLhttps://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
+![CI](https://github.com/Rorrshaj/learn-cicd-typescript-starter/actions/workflows/ci.yml/badge.svg)
 
 # learn-cicd-typescript-starter (Notely)
 
