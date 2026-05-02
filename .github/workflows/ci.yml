@@ -24,9 +24,13 @@ jobs:
       - name: Run tests
         run: npm run test -- --coverage
 
-    Style:
+  style:
+    name: Style
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Check out code
-        npm run format:check
+        uses: actions/checkout@v4
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -36,5 +40,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run lint
+      - name: Run style check
         run: npm run format:check
