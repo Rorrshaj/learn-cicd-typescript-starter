@@ -23,3 +23,19 @@ jobs:
 
       - name: Run tests
         run: npm run test -- --coverage
+
+  lint:
+    Style:
+      - name: Check out code
+        npm run format:check
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run format:check
