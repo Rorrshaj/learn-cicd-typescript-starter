@@ -15,6 +15,9 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
 
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -44,6 +47,9 @@ jobs:
 
       - name: "Build image and deploy"
         run: "gcloud builds submit --tag us-central1-docker.pkg.dev/valiant-nucleus-495222-p8/notely-ar-repo/notely:latest ."
+
+      - name: Migration
+        run: npm run db:migrate
 
       - name: Deploy to Cloud Run
         run: gcloud run deploy notely --image us-central1-docker.pkg.dev/valiant-nucleus-495222-p8/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project valiant-nucleus-495222-p8 --max-instances=4
